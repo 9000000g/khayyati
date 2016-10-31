@@ -1,0 +1,38 @@
+﻿ <!DOCTYPE html>
+<html>
+    <head>
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <title>Khayyati App</title>
+		<meta http-equiv="Content-Security-Policy"/>
+		<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+		<!-- Angular -->
+		<script src="bower_components/angular/angular.min.js"></script>
+		<script src="bower_components/angular-animate/angular-animate.js"></script>
+
+		<script>if (window.module) module = window.module;</script>
+		<!-- App -->
+		<link rel="stylesheet" href="css/app.css">
+		<script src="js/services.js"></script>
+		<script src="js/controllers.js"></script>
+		<script src="js/app.js"></script>
+    </head>
+    <body ng-app="app" ng-controller="MainCtrl">
+		<div class="container">
+			
+			<div class="preview">
+				<div ng-repeat="(sectionName, section) in sections" class="section-group" ng-class="{sectionName: true}">
+					<div ng-repeat="item in section.items" class="section" ng-class="{sectionName: true, 'visible': manto[sectionName] == item.file}" ng-style="{'background-image': 'url(' + item.file +')'}"></div>
+					<!--div ng-repeat="item in section.items" class="section" ng-class="{sectionName: true, 'visible': manto[sectionName] == item.file}" ng-include="item.file"></div-->
+				</div>
+			</div>
+			<div class="panel">
+				<div ng-repeat="(sectionName, section) in sections" class="section-group" ng-class="{sectionName: true}">
+					<h2 ng-bind="section.text"></h2>
+					<button ng-repeat="item in section.items" class="section" ng-class="{selected: manto[sectionName] == item.file}" ng-click="manto[sectionName] = item.file" ng-style="{'background-image': 'url(' + item.file +')'}" ng-bind="item.text"></button>
+				</div>
+			</div>
+		</div>
+    </body>
+</html>

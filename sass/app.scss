@@ -1,0 +1,115 @@
+$primary-background: #131926;
+$primary-color: #FFF;
+$button-background: #DADADA;
+$success-color: #0AA569;
+
+$transition-fast: all 100ms;
+$transition-normal: all 460ms;
+$transition-slow: all 600ms;
+
+*{
+	box-sizing: border-box;
+}
+*:focus, *:hover, *:active{
+	outline: none;
+}
+@mixin primary-radius() {
+	border-radius: 4px;
+}
+@mixin shadow($length, $blur) {
+	box-shadow: 0 $length $blur rgba(0,0,0,0.2);
+}
+@mixin inner-shadow($length, $blur) {
+	box-shadow: inset 0 (-1 * $length) $blur rgba(0,0,0,0.3);
+}
+
+*{
+	box-sizint: border-box;
+}
+*:focus, *:hover, *:active{
+	outline: none;
+}
+
+body, html{
+	background: darken($primary-background, 4%);
+	color: $primary-color; 
+	height: 100%;
+	overflow: hidden;
+	margin: 0;
+	direction: rtl;
+}
+.container{
+	background: $primary-background;
+	margin: 15px auto;
+	padding: 15px;
+	width: 95%;
+	max-width: 1024px;
+	height: 90%;
+	max-height: 600px;
+	overflow: hidden;
+	@include primary-radius();
+	@include shadow(15px, 15px);
+	& .preview{
+		background: $primary-color;
+		position: relative;
+		float: left;
+		width: 50%;
+		height: 100%;
+		@include primary-radius();
+		@include shadow(15px, 15px);
+		& .section-group{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			& .section{
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				border: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-size : contain;
+				background-position : center;
+				background-repeat : no-repeat;
+				transition: $transition-normal;
+				transform: rotateY(90deg);
+				opacity: 0;
+				&.visible{
+					opacity: 1;
+					transform: rotateY(0deg);
+					
+					& svg *{
+						stroke: red;
+					}
+				}
+			}
+			
+		}
+	}
+	& .panel{
+		position: relative;
+		float: right;
+		width: 50%;
+		height: 100%;
+		overflow-y: auto;
+		& button.section{
+			background: $button-background;
+			padding: 8px 15px;
+			border: none;
+			margin: 7.5px;
+			cursor: pointer;
+			@include primary-radius();
+			@include shadow(15px, 15px);
+			border: solid 2px transparent;
+			transition: $transition-fast;
+			&.selected{
+				background: darken( $success-color, 20% );
+				border: solid 2px darken( $success-color, 10%);
+				color: lighten( $success-color, 10% );
+			}
+		}
+	}
+}

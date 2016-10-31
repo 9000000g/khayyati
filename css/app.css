@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box; }
+
+*:focus, *:hover, *:active {
+  outline: none; }
+
+* {
+  box-sizint: border-box; }
+
+*:focus, *:hover, *:active {
+  outline: none; }
+
+body, html {
+  background: #0c1018;
+  color: #FFF;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  direction: rtl; }
+
+.container {
+  background: #131926;
+  margin: 15px auto;
+  padding: 15px;
+  width: 95%;
+  max-width: 1024px;
+  height: 90%;
+  max-height: 600px;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2); }
+  .container .preview {
+    background: #FFF;
+    position: relative;
+    float: left;
+    width: 50%;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2); }
+    .container .preview .section-group {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+      .container .preview .section-group .section {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        border: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: all 460ms;
+        transform: rotateY(90deg);
+        opacity: 0; }
+        .container .preview .section-group .section.visible {
+          opacity: 1;
+          transform: rotateY(0deg); }
+  .container .panel {
+    position: relative;
+    float: right;
+    width: 50%;
+    height: 100%;
+    overflow-y: auto; }
+    .container .panel button.section {
+      background: #DADADA;
+      padding: 8px 15px;
+      border: none;
+      margin: 7.5px;
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+      border: solid 2px transparent;
+      transition: all 100ms; }
+      .container .panel button.section.selected {
+        background: #04452c;
+        border: solid 2px #07754a;
+        color: #0dd588; }
+
+/*# sourceMappingURL=app.css.map */
